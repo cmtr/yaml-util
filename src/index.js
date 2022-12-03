@@ -1,7 +1,9 @@
 const date = require("./date");
-const ref = require("./graph/ref");
+const graph = require("./graph");
+const math = require("./math");
 
 module.exports = {
 	...date,
-	ref
+	...graph,
+	...math
 };
