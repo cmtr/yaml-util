@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/cmtr/yaml-util#readme",
   "devDependencies": {
+    "chai": "^4.3.7",
     "mocha": "^10.1.0"
   }
 }
