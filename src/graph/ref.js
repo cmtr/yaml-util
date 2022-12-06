@@ -11,12 +11,16 @@ const replace = (obj, targetKey) => {
 	return pointer(obj, key, value)
 }
 
-const pathPredicate = (value) => {
+// Reference Key as part of Path
+const pathPredicate = (path, value) => {
+	if (typeof path !== "string") return false;
+	if (path.split("/").pop() !== KEY) return false;
 	if (typeof value !== "string") return false;
-	if (value.split("/").pop() !== KEY) return false;
+	if (value.split(" ").length !== 1) return false;
 	return true;
 }
 
+// Reference Key as part of the Value
 const valuePredicate = (value) => {
 	if (typeof value !== "string") return false;
 	const split = value.split(" ");
@@ -25,13 +29,20 @@ const valuePredicate = (value) => {
 	return true;
 }
 
+const isActionable = (path, value) => {
+	const isPath = pathPredicate(path, value);
+	const isValue = valuePredicate(value);
+	return	(isPath || isValue) && !(isPath && isValue);
+}
 
+/**
+ * Mutable function
+ */
 module.exports = (obj) => {
 	Object
 		.entries(pointer.dict(obj))
 		.forEach(([ path, value ]) => {
-			if (pathPredicate(path) || valuePredicate(value)) 
-				replace(obj, path);
+			if (isActionable(path, value)) replace(obj, path);
 		});
 	return obj;
 };
