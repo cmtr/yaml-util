@@ -1,8 +1,0 @@
----
-input:
-  asString: !File: ./textFile.txt
-  asObject:
-    !File: ./textFile.txt
-output:
-  asString: This is some plain text in a text file.
-  asObject: This is some plain text in a text file.

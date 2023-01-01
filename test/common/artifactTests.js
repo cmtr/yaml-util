@@ -5,11 +5,18 @@ const pointer = require("json-pointer");
 const chai = require("chai");
 chai.should();
 
+const artifactsRootDirectory = __dirname + "/../artifacts/"
+
 const testArtifacts = [
 	{
 		name: "Graph - Ref",
-		path: __dirname + "/../artifacts/graph.yml",
+		path: artifactsRootDirectory + "graph.yml",
 		func: util.ref		
+	},
+	{
+		name: "IO - File",
+		path: artifactsRootDirectory + "file.yml",
+		func: util.file(artifactsRootDirectory)
 	}
 ]
 
