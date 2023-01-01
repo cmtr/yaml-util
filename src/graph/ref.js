@@ -1,15 +1,9 @@
+const { replaceIf } = require("../common");
 const pointer = require("json-pointer");
+const config = require("../common/config")
+const KEY = config.ref.key;
 
-const KEY = "$Ref";
-
-const removeKey = (key) => (path) => path.replace(key, "")
-
-const replace = (obj, targetKey) => {
-	const key = removeKey("/" + KEY)(targetKey);
-	const sourceKey = removeKey(KEY + " ")(pointer(obj, targetKey));
-	const value = pointer(obj, sourceKey);
-	return pointer(obj, key, value)
-}
+// Pradicate
 
 // Reference Key as part of Path
 const pathPredicate = (path, value) => {
@@ -35,14 +29,19 @@ const isActionable = (path, value) => {
 	return	(isPath || isValue) && !(isPath && isValue);
 }
 
+// Action
+
+const removeKey = (key) => (path) => path.replace(key, "")
+
+const replace = (obj, targetKey) => {
+	const key = removeKey("/" + KEY)(targetKey);
+	const sourceKey = removeKey(KEY + " ")(pointer(obj, targetKey));
+	const value = pointer(obj, sourceKey);
+	return pointer(obj, key, value)
+}
+
+
 /**
  * Mutable function
  */
-module.exports = (obj) => {
-	Object
-		.entries(pointer.dict(obj))
-		.forEach(([ path, value ]) => {
-			if (isActionable(path, value)) replace(obj, path);
-		});
-	return obj;
-};
+module.exports = replaceIf(isActionable, replace);

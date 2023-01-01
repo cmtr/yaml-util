@@ -1,7 +1,8 @@
 const pointer = require("json-pointer");
 const common = require("./common");
+const config = require("../common/config.json");
+const KEY = config.power.key;
 
-const KEY = "$Power";
 
 // Action
 const power = (obj, path) => {

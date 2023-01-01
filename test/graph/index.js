@@ -6,27 +6,35 @@ chai.should();
 
 const graph = require("../../src/graph");
 
-describe("graph.yml", () => {
+const path = __dirname + "/../artifacts/graph.yml";
 
-	let model;
-	let input;
-	let output;
-	let updated;
+function doSomething(path) {
 
-	before(() => {
-		model = yaml.load(readFileSync(__dirname + "/../artifacts/graph.yml", { encoding: "utf-8" }));
-		input = model.input;
-		output = model.output;
-		updated = graph.ref(input);
-		
-	})
+	describe(path, () => {
 
-	it("Matching each input and output field in file", () => {
-		pointer.walk(input, (value, path) => {
-			const target = pointer.get(updated, path);
-			const expected = pointer.get(output, path);
-			target.should.equal(expected, `Target value '${target}' should equal '${expected}' for path '${path}'`);
+		let model;
+		let input;
+		let output;
+		let updated;
+
+		before(() => {
+			model = yaml.load(readFileSync(path, { encoding: "utf-8" }));
+			input = model.input;
+			output = model.output;
+			updated = graph.ref(input);			
 		});
-	});
 
-})
+
+		it(`Target value `, () => {
+			pointer.walk(input, (value, path) => {
+				const target = pointer.get(updated, path);
+				const expected = pointer.get(output, path);
+				target.should.equal(expected, `Target value '${target}' should equal '${expected}' for path '${path}'`);
+			});
+		});
+
+	});
+	
+};
+
+doSomething(path)

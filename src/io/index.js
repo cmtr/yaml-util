@@ -1,2 +1,5 @@
-const { readFileSync, writeFileSync } = require("fs");
-const yaml = require("js-yaml");
+const file = require("./file");
+
+module.exports = {
+	file
+};

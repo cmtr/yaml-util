@@ -9,8 +9,8 @@ input:
     asString1: $Ref /independent somthing
     asObject1:
       $Ref: /independent somthing
-    asBoth:
-      $Ref: $Ref /independent
+    asBoth: asdf
+#      $Ref: $Ref /independent
 output:
   independent: independent value
   dependent:
@@ -20,5 +20,5 @@ output:
     asString1: $Ref /independent somthing
     asObject1:
       $Ref: /independent somthing
-    asBoth:
-      $Ref: $Ref /independent
+    asBoth: asdf
+#      $Ref: $Ref /independent

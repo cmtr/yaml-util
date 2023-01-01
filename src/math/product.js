@@ -1,8 +1,8 @@
 const _ = require("lodash");
 const pointer = require("json-pointer");
 const common = require("./common");
-
-const KEY = "$Product";
+const config = require("../common/config.json");
+const KEY = config.product.key;
 
 // Action
 const productPath = (obj, path) => {
