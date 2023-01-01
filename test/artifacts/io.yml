@@ -1,7 +1,8 @@
 ---
 input:
-  asString: !File: /aa/
+  asString: !File: ./textFile.txt
   asObject:
-    !File: /aa/
+    !File: ./textFile.txt
 output:
-  asKey:
+  asString: This is some plain text in a text file.
+  asObject: This is some plain text in a text file.

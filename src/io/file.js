@@ -1,29 +1,18 @@
 const { readFileSync } = require("fs");
-const yaml = require("js-yaml");
+// const yaml = require("js-yaml");
+const { replaceIf, keyPredicate } = require("../common");
 const config = require("../common/config");
 const KEY = config.file.key;
 
 // Preducate
-
-
-const pathPredicate = (path, value) => {
-
-};
-
-const valuePredicate = (value) => {
-
-};
-
-const isActionable = (path, value) => {
-	const isPath = pathPredicate(path, value);
-	const isValue = valuePredicate(value);
-	return	(isPath || isValue) && !(isPath && isValue);
-};
+const isActionable = keyPredicate(KEY, 1);
 
 // Action
 
-const replace = (obj, targetKey) => {
-	
+const removeKey = (key) => (value) => value.replace(key, "")
+
+const replace = (obj, path, value) => {
+	console.log(obj, path, value)
 }
 
 // Defaults
@@ -31,6 +20,4 @@ const defaultOptions = {
 	encoding: "utf-8"
 };
 
-module.exports = (rootDirectory, opt={}) => (obj) => {
-
-}
+module.exports = (rootDirectory, opt={}) => replaceIf();

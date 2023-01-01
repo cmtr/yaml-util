@@ -17,12 +17,11 @@
 
 const pointer = require("json-pointer");
 
-
 module.exports = (isActionable, replace) => (obj) => {
 	Object
 		.entries(pointer.dict(obj))
 		.forEach(([ path, value ]) => {
-			if (isActionable(path, value)) replace(obj, path);
+			if (isActionable(path, value)) replace(obj, path, value);
 		});
 	return obj;
 }
