@@ -1,0 +1,24 @@
+---
+input:
+  independent: independent value
+  dependent:
+    asString: $Ref /independent
+    asObject:
+      $Ref: /independent
+  wrongFormat:
+    asString1: $Ref /independent somthing
+    asObject1:
+      $Ref: /independent somthing
+    asBoth: asdf
+#      $Ref: $Ref /independent
+output:
+  independent: independent value
+  dependent:
+    asString: independent value
+    asObject: independent value
+  wrongFormat:
+    asString1: $Ref /independent somthing
+    asObject1:
+      $Ref: /independent somthing
+    asBoth: asdf
+#      $Ref: $Ref /independent

@@ -1,0 +1,12 @@
+---
+input:
+  plainText: This is some plain text in a text file.
+  asString: $File ./textFile.txt
+  asObject:
+    $File: ./textFile.txt
+  # TODO - Test filename with a space in it
+  # TODO - Test wrong formats
+output:
+  plainText: This is some plain text in a text file.
+  asString: This is some plain text in a text file.
+  asObject: This is some plain text in a text file.

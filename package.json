@@ -1,0 +1,31 @@
+{
+  "name": "yaml-util",
+  "version": "1.0.0",
+  "description": "YAML File Util Functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha.js -recursive ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmtr/yaml-util.git"
+  },
+  "keywords": [
+    "YAML"
+  ],
+  "author": "Harald Blikø",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cmtr/yaml-util/issues"
+  },
+  "homepage": "https://github.com/cmtr/yaml-util#readme",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "json-pointer": "^0.6.2",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0"
+  }
+}

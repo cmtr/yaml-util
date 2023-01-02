@@ -1,0 +1,47 @@
+{
+	"ref": {
+		"category": "graph",
+		"key": "$Ref",
+		"description": ""
+	},
+	"file": {
+		"category": "io",
+		"key": "$File",
+		"description": "Import of UFT-8 Text file"
+	},
+	"yamlFile": {
+		"category": "io",
+		"key": "$YamlFile",
+		"description": "Import of Yaml File"
+	},
+	"jsonFile": {
+		"category": "io",
+		"key": "$JsonFile",
+		"description": "Import of stringified JSON File"
+	},
+	"sum": {
+		"category": "math",
+		"key": "$Sum",
+		"description": "Sum Array"
+	},
+	"product": {
+		"category": "math",
+		"key": "$Product",
+		"description": "Product Array"
+	},
+	"mean": {
+		"category": "math",
+		"key": "$Mean",
+		"description": "Mean Array"
+	},
+	"power": {
+		"category": "math",
+		"key": "$Power",
+		"description": ""
+	},
+	"sqrt": {
+		"category": "math",
+		"key": "$Sqrt",
+		"description": ""
+	}
+}
