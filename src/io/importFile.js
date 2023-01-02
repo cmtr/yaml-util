@@ -1,7 +1,9 @@
 /**
  * 
+ * 
  * @author Harald Blikø
  */
+
 const common = require("./common");
 const config = require("../common/config");
 const KEY = config.file.key;

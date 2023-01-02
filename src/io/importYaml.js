@@ -1,3 +1,9 @@
+/**
+ * 
+ * 
+ * @author Harald Blikø
+ */
+
 const yaml = require("js-yaml");
 const common = require("./common");
 const config = require("../common/config");

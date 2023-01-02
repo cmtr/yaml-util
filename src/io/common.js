@@ -1,8 +1,8 @@
 /**
  * 
+ * 
  * @author Harald Blikø
  */
-
 
 const { readFileSync } = require("fs");
 const pointer = require("json-pointer");
