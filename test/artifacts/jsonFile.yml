@@ -1,9 +1,9 @@
 ---
 input:
   negativeTest: should be unchanged
-  asString: $YamlFile ./simpleYamlFile.yml
+  asString: $JsonFile ./simpleJsonFile.json
   asObject:
-    $YamlFile: ./simpleYamlFile.yml
+    $JsonFile: ./simpleJsonFile.json
 output:
   negativeTest: should be unchanged
   asString:

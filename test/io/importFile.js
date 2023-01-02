@@ -1,1 +1,1 @@
-const file = require("../../src/io/file");
+const file = require("../../src/io/importFile");

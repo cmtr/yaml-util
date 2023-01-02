@@ -1,0 +1,11 @@
+{
+	"key": "value",
+	"nestedObject": {
+		"key": "value"
+	},
+	"array": [
+		"one",
+		"two",
+		"three"
+	]
+}
