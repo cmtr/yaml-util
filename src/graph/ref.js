@@ -1,5 +1,5 @@
 const pointer = require("json-pointer");
-
+const _ = require("lodash");
 const { 
 	replaceIf, 
 	keyPredicate, 
@@ -17,7 +17,8 @@ const isActionable = keyPredicate(KEY, 1);
 const replace = (obj, path, value) => {
 	const key = removeKey("/" + KEY)(path);
 	const sourceKey = removeKey(KEY + " ")(value);
-	const payload = pointer(obj, sourceKey);
+	// const payload = pointer(obj, sourceKey);
+	const payload = _.get(obj, sourceKey);
 	return pointer(obj, key, payload)
 }
 

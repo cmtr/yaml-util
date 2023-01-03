@@ -2,23 +2,24 @@
 input:
   independent: independent value
   dependent:
-    asString: $Ref /independent
+    asString: $Ref independent
     asObject:
-      $Ref: /independent
+      $Ref: independent
   wrongFormat:
-    asString1: $Ref /independent somthing
+    asString1: $Ref independent somthing
     asObject1:
-      $Ref: /independent somthing
+      $Ref: independent somthing
     asBoth: asdf
 #      $Ref: $Ref /independent
+# TODO - create test case for getting a nested value
 output:
   independent: independent value
   dependent:
     asString: independent value
     asObject: independent value
   wrongFormat:
-    asString1: $Ref /independent somthing
+    asString1: $Ref independent somthing
     asObject1:
-      $Ref: /independent somthing
+      $Ref: independent somthing
     asBoth: asdf
 #      $Ref: $Ref /independent
