@@ -32,7 +32,7 @@ const defaultOptions = {
 
 module.exports = (key, argLength, transform, overrideOptions={}) => 
 	(rootDirectory, userOptions={}) => (obj) => {
-		
+  
 		// Allways have preferenciality to the configurations towards the end
 		const options =  { 
 			...defaultOptions, 
