@@ -32,6 +32,8 @@ const defaultOptions = {
 
 module.exports = (key, argLength, transform, overrideOptions={}) => 
 	(rootDirectory, userOptions={}) => (obj) => {
+		
+		// Allways have preferenciality to the configurations towards the end
 		const options =  { 
 			...defaultOptions, 
 			...overrideOptions, 
@@ -43,14 +45,13 @@ module.exports = (key, argLength, transform, overrideOptions={}) =>
 				replace(key, rootDirectory, transform, options)
 			);
 
+		// Iteratively import files 
+		// If recursive, also those referenced in imported files
 		let result = obj;
 		let previous;
-		let counter = 0;
 		do {
 			previous = _.cloneDeep(result);
 			result = modifyObject(result);
-			
-			if (counter++ > 10) break;
 		} while (options.recursive && !_.isEqual(result, previous))
 
 		return result;
