@@ -4,6 +4,9 @@ input:
   asString: $JsonFile ./simpleJsonFile.json
   asObject:
     $JsonFile: ./simpleJsonFile.json
+  # TODO - Recursive reference
+  # TODO - Incorrect formating
+  # TODO - Reference to file that does not exist
 output:
   negativeTest: should be unchanged
   asString:
