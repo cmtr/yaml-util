@@ -1,3 +1,7 @@
+---
+noReference:
+  text: text
+pureText: This is some plain text in a text file.
 sameFolder:
   key: value
   nestedObject:

@@ -11,13 +11,15 @@ const util = require("../../src/index");
 
 const path = __dirname + "/../artifacts/yaml-file-v2.yml"
 
-const testArtifacts = [{
-	name: "IO - Import Yaml Content V2",
-	func: importYaml,
-	inputPath: __dirname + "/../artifacts/yaml-file-v2-input.yml",
-	outputPath: __dirname + "/../artifacts/yaml-file-v2-output.yml",
-	description: "Yaml Content With Relative Path Support"
-}];
+const testArtifacts = [
+	{
+		name: "IO - Import Yaml Content V2",
+		func: importYaml,
+		inputPath: __dirname + "/../artifacts/yaml-file-v2-input.yml",
+		outputPath: __dirname + "/../artifacts/yaml-file-v2-output.yml",
+		description: "Yaml Content With Relative Path Support"
+	}
+];
 
 // Test
 

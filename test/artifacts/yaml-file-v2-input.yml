@@ -1,6 +1,11 @@
+---
+noReference:
+  text: text
+pureText:
+  $File: ./simpleTextFile.txt
 sameFolder:
-  $YamlFile: ./simpleYamlFile.yml
+  $File: ./simpleYamlFile.yml
 childFolder:
-  $YamlFile: ./folder/nested-file.yml
+  $File: ./folder/nested-file.yml
 nestedFolder:
-  $YamlFile: ./folder/nestedFolder/double-nested-file.yml
+  $File: ./folder/nestedFolder/double-nested-file.yml

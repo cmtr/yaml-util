@@ -8,14 +8,14 @@
  */
 const { readFileSync } = require("fs");
 const Path = require("path");
-const _ = require("lodash");
 const pointer = require("json-pointer");
 const yaml = require("js-yaml");
 
 const { 
 	replaceIf, 
 	keyPredicate, 
-	removeKey
+	removeKey, 
+	resolvePath
 } = require("../common");
 
 const config = require("../common/config");
@@ -23,51 +23,63 @@ const config = require("../common/config");
 
 // Defaults
 const defaultOptions = {
-	encoding: "utf-8",
-	recursive: true
+	encoding: "utf-8"
 };
 
+const KEY = "$File";
 
-const transformation = [
-	{
-		key: config.file.key,
-		argLength: 1,
-		transformation: (obj) => obj,
-		options: { },
-		recursive: false
-	}, 
-	{
-		key: config.yamlFile.key,
-		argLength: 1,
-		transformation: yaml.load,
-		options: { },
-		recursive: true
-	},
-	{
-		key: config.jsonFile.key,
-		argLength: 1,
-		transformation: JSON.parse,
-		options: { },
-		recursive: true
+const isActionable = keyPredicate(KEY, 1)
+
+const replace = (sourceFilePath, options) => (obj, path, value) => {
+	const targetFilePath = removeKey(KEY)(value);
+	const key = removeKey("/" + KEY)(path);
+	const payload = common(sourceFilePath)(targetFilePath, options);
+	return pointer(obj, key, payload);
+}
+
+// Modifies the js-object
+//
+// File Path of the original file is needed in order to use relative paths 
+// in the configuration files
+const modify = (payload, filePath, options) => 
+	replaceIf(isActionable, replace(filePath, options))(payload);
+
+// Transform the raw file data to js-object based on file-extension naming
+const transform = (payload, filePath, options) => {
+	const fileExtension = Path.extname(filePath).toLowerCase()
+
+	switch (fileExtension) {
+	case ".yml":
+	case ".yaml":
+		// recursive: true
+		return yaml.load(payload);
+		// recursive: true
+	case ".json":
+		return JSON.parse(payload);
+	default:
+		// recursive: false
+		return payload;
 	}
-]
 
+}
 
-const common = (sourceFilePath) => (relativePath, userOptions={}) => {
-		
-		const absolutePath = Path.resolve(sourceFilePath, relativePath);
-		console.log(absolutePath);
+const common = (sourceFilePath) => (targetFilePath, userOptions={}) => {
+	// Options
+	const options =  { 
+		...defaultOptions, 
+		...userOptions 
+	}; 
+	
+	// Extract
+	const targetAbsolutePath = resolvePath(sourceFilePath)(targetFilePath);
+	const payload = readFileSync(targetAbsolutePath, options)
 
-		// Allways have preferenciality to the configurations towards the end
-		const options =  { 
-			...defaultOptions, 
-			...userOptions 
-		}; 
+	// Transform
+	const transformed = transform(payload, targetAbsolutePath, options);
+	const modified = modify(transformed, targetAbsolutePath, options);
 
-
-		return {
-
-		}
-	}
+	// Load
+	return modified;
+}
 
 module.exports = common;
