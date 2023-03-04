@@ -1,0 +1,6 @@
+---
+description: From file in child folder
+nested:
+  $YamlFile: ./nestedFolder/double-neste-file.yml
+parent:
+  $YamlFile: ../simeYamlFile.yml

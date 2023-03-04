@@ -1,0 +1,38 @@
+sameFolder:
+  key: value
+  nestedObject:
+    key: value
+  array:
+    - one
+    - two
+    - three
+childFolder:
+  description: From file in child folder
+  nested:
+    description: File from the nested folder
+    orgFolder:
+      key: value
+      nestedObject:
+        key: value
+      array:
+        - one
+        - two
+        - three
+  parent:
+    key: value
+    nestedObject:
+      key: value
+    array:
+      - one
+      - two
+      - three
+nestedFolder:
+  description: File from the nested folder
+  orgFolder:
+    key: value
+    nestedObject:
+      key: value
+    array:
+      - one
+      - two
+      - three

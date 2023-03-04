@@ -1,27 +1,42 @@
 ---
 input:
   negativeTest: should be unchanged
-  asString: $JsonFile ./simpleJsonFile.json
-  asObject:
-    $JsonFile: ./simpleJsonFile.json
-  # TODO - Recursive reference
+  simple:
+    asString: $JsonFile ./simpleJsonFile.json
+    asObject:
+      $JsonFile: ./simpleJsonFile.json
+  advanced:
+    asString: $JsonFile ./advancedJsonFile.json
+    asObject:
+      $JsonFile: ./advancedJsonFile.json
   # TODO - Incorrect formating
   # TODO - Reference to file that does not exist
 output:
   negativeTest: should be unchanged
-  asString:
-    key: value
-    nestedObject:
+  simple:
+    asString: &simpleJson
       key: value
-    array:
-      - one
-      - two
-      - three
-  asObject:
-    key: value
-    nestedObject:
-      key: value
-    array:
-      - one
-      - two
-      - three
+      nestedObject:
+        key: value
+      array:
+        - one
+        - two
+        - three
+    asObject: *simpleJson
+  advanced:
+    asString: &advancedJson
+      key:
+        nested:
+          fixed:
+            lorem: ipsum
+            int: 12
+            float: 0.2
+          contextual:
+            jsonAsString: *simpleJson
+            jsonAsObject: *simpleJson
+            jsonAsObjectAlt: *simpleJson
+        array:
+          - *simpleJson
+          - *simpleJson
+          - *simpleJson
+    asObject: *advancedJson

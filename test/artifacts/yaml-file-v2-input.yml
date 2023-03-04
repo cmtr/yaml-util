@@ -1,0 +1,6 @@
+sameFolder:
+  $YamlFile: ./simpleYamlFile.yml
+childFolder:
+  $YamlFile: ./folder/nested-file.yml
+nestedFolder:
+  $YamlFile: ./folder/nestedFolder/double-nested-file.yml

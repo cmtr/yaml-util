@@ -1,16 +1,20 @@
 /**
  * 
+ * The objective is to remvoe the rootDirectory variable from the first
+ * part of the function. We want to have a moving reference point that is
+ * at any time fixed to the location of the object being processed.
  * 
  * @author Harald Blikø
  */
-
+const Path = require("path");
 const { readFileSync } = require("fs");
 const _ = require("lodash");
 const pointer = require("json-pointer");
 const { 
 	replaceIf, 
 	keyPredicate, 
-	removeKey 
+	removeKey,
+	resolvePath
 } = require("../common");
 
 
@@ -24,13 +28,14 @@ const replace = (KEY, rootDirectory, transform, options) =>
 		return pointer(obj, key, transformed);
 	};
 
+
 // Defaults
 const defaultOptions = {
 	encoding: "utf-8",
 	recursive: true
 };
 
-module.exports = (key, argLength, transform, overrideOptions={}) => 
+const common = (key, argLength, transform, overrideOptions={}) => 
 	(rootDirectory, userOptions={}) => (obj) => {
 		
 		// Allways have preferenciality to the configurations towards the end
@@ -56,3 +61,5 @@ module.exports = (key, argLength, transform, overrideOptions={}) =>
 
 		return result;
 	}
+
+module.exports = common;
