@@ -3,7 +3,6 @@ chai.should();
 const { readFileSync } = require("fs");
 const yaml = require("js-yaml");
 const pointer = require("json-pointer");
-const importYaml = require("../../src/io/import-yaml-v2");
 const util = require("../../src/index");
 
 // Test Data
@@ -11,7 +10,7 @@ const util = require("../../src/index");
 const testArtifacts = [
 	{
 		name: "IO - Import File",
-		func: importYaml(),
+		func: util.importFile(),
 		inputPath: __dirname + "/../artifacts/yaml-file-v2-input.yml",
 		outputPath: __dirname + "/../artifacts/yaml-file-v2-output.yml",
 		description: "Yaml Content With Relative Path Support"
