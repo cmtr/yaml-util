@@ -3,8 +3,19 @@ const Path = require("path");
 
 const cwd = process.cwd();
 
-// Limitations:
-// - It is not necessary to check if the actual path does exist
+/**
+ * Given a optional source file or directory as basis and 
+ * a relative path to a target file the function will 
+ * return the absolute path to the target file
+ * 
+ * The source is defaulted to current working directory when not present.
+ * 
+ * @param source file path - defaulted to current working directory
+ * @param target relative file path
+ * @return target file absolute path as STRING
+ * 
+ * @author Harald Blikø
+ */
 module.exports = (source=cwd) => {
 	if (!fs.existsSync(source)) throw new Error(`Source path "${source}" does not exist`);
 
