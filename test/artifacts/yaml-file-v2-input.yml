@@ -3,6 +3,8 @@ noReference:
   text: text
 pureText:
   $File: ./simpleTextFile.txt
+jsonFile:
+  $File: ./simpleJsonFile.json
 sameFolder:
   $File: ./simpleYamlFile.yml
 childFolder:

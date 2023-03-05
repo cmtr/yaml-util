@@ -10,11 +10,10 @@ const sourceDirectory = Path.resolve(testDirectory, "..");
 describe("Common - Resolve Path", () => {
 
 	describe("Given a soureFilePath with reference from", () => {
-		const path = "/artifacts/file.yml"
+		const path = "/artifacts/simpleTextFile.txt"
 		const relativePath = ".." + path;
 
 		it("file in this folder", () => {
-			console.log(sourceDirectory)
 			resolvePath(__dirname + "/resolvePath.js")(relativePath).should.equal(testDirectory + path);
 		});
 

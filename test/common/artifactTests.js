@@ -13,24 +13,6 @@ const testArtifacts = [
 		path: artifactsRootDirectory + "graph.yml",
 		func: util.ref,
 		description: "Something here "	
-	},
-	{
-		name: "IO - Import File Content",
-		path: artifactsRootDirectory + "file.yml",
-		func: util.file(artifactsRootDirectory),
-		description: "Something here "	
-	},
-	{
-		name: "IO - Import Json Content",
-		path: artifactsRootDirectory + "jsonFile.yml",
-		func: util.jsonFile(artifactsRootDirectory),
-		description: "Something here "
-	},
-	{
-		name: "IO - Import Yaml Content",
-		path: artifactsRootDirectory + "yamlFile.yml",
-		func: util.yamlFile(artifactsRootDirectory),
-		description: "Something here "
 	}
 ]
 

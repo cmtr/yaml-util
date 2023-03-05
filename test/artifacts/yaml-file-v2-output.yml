@@ -2,6 +2,14 @@
 noReference:
   text: text
 pureText: This is some plain text in a text file.
+jsonFile:
+  key: value
+  nestedObject:
+    key: value
+  array:
+    - one
+    - two
+    - three
 sameFolder:
   key: value
   nestedObject:
