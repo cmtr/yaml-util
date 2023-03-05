@@ -1,0 +1,13 @@
+---
+noReference:
+  text: text
+pureText:
+  $File: ./simpleTextFile.txt
+jsonFile:
+  $File: ./simpleJsonFile.json
+sameFolder:
+  $File: ./simpleYamlFile.yml
+childFolder:
+  $File: ./folder/nested-file.yml
+nestedFolder:
+  $File: ./folder/nestedFolder/double-nested-file.yml

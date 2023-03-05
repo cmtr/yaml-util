@@ -1,9 +1,5 @@
-const file = require("./importFile");
-const jsonFile = require("./importJson");
-const yamlFile = require("./importYaml");
+const importFile = require("./importFile");
 
 module.exports = {
-	file,
-	yamlFile,
-	jsonFile
+	importFile
 };

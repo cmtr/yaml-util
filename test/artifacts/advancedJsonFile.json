@@ -1,0 +1,27 @@
+{
+	"key": {
+		"nested": {
+			"fixed": {
+				"lorem": "ipsum",
+				"int": 12,
+				"float": 0.2
+			},
+			"contextual": {
+				"jsonAsString": "$JsonFile simpleJsonFile.json",
+				"jsonAsObject": {
+					"$JsonFile": "simpleJsonFile.json"
+				},
+				"jsonAsObjectAlt": {
+					"$JsonFile": "./simpleJsonFile.json"
+				}
+			}
+		},
+		"array": [
+			"$JsonFile simpleJsonFile.json",
+			"$JsonFile ./simpleJsonFile.json",
+			{
+				"$JsonFile": "./simpleJsonFile.json"
+			}
+		]
+	}
+}
