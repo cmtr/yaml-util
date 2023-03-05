@@ -31,13 +31,7 @@ const testArtifacts = [
 		path: artifactsRootDirectory + "yamlFile.yml",
 		func: util.yamlFile(artifactsRootDirectory),
 		description: "Something here "
-	} /*,
-	{
-		name: "IO - Import Yaml Content V2",
-		path: artifactsRootDirectory + "yaml-file-v2.yml",
-		func: util.yamlFile(artifactsRootDirectory),
-		description: "Yaml Content With Relative Path Support"
-	} */
+	}
 ]
 
 describe("Test of Artifacts", () => {

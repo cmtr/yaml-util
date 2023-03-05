@@ -1,4 +1,4 @@
 ---
 description: File from the nested folder
 orgFolder:
-  $YamlFile: ../../simpleYamlFile.yml
+  $File: ../../simpleYamlFile.yml

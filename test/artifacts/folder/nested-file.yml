@@ -1,6 +1,6 @@
 ---
 description: From file in child folder
 nested:
-  $YamlFile: ./nestedFolder/double-neste-file.yml
+  $File: ./nestedFolder/double-nested-file.yml
 parent:
-  $YamlFile: ../simeYamlFile.yml
+  $File: ../simpleYamlFile.yml
