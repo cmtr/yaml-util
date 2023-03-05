@@ -25,7 +25,7 @@ module.exports = (source=cwd) => {
 
 	return (target) => {
 		const targetAbsolutePath = Path.resolve(sourceDirectoryPath, target);
-		if (!fs.existsSync(targetAbsolutePath)) throw new Error(`target path "${targetAbsolutePath}" does not exist`);
+		if (!fs.existsSync(targetAbsolutePath)) throw new Error(`Target path "${targetAbsolutePath}" referenced in file "${source}" does not exist`);
 		return targetAbsolutePath
 	}
 } ;
